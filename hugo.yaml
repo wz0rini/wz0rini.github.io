@@ -1,0 +1,40 @@
+baseURL: "https://wz0rini.github.io/"
+locale: "en-us"
+title: "Bartosz Wzorek | Terminal & Labs"
+theme: "PaperMod"
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+
+params:
+  env: "production"
+  title: "wz0rini's Lab"
+  description: "Cybersecurity, Network Security, Active Directory, and Threat Analysis."
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  defaultTheme: "dark"
+
+  # Wizytówka na stronie głównej
+  homeInfoParams:
+    Title: "Bartosz Wzorek (wz0rini) 👋"
+    Content: "Cybersecurity student @ PWr. Documenting detection engineering, Active Directory labs, network triage, and incident responses."
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/wz0rini"
+    - name: "linkedin"
+      url: "https://linkedin.com/in/bartosz-wzorek-60a342431"
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: projects
+      name: Projects
+      url: /projects/
+      weight: 20
