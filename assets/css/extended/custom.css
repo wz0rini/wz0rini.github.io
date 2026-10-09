@@ -1,0 +1,56 @@
+/* Stylizacja tabel w artykułach */
+.post-content table {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* Nagłówek tabeli */
+.post-content table th {
+    background-color: var(--tertiary);
+    font-weight: 600;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+}
+
+/* Komórki z danymi */
+.post-content table td {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+}
+
+/* Paski naprzemienne (zebra striping) dla czytelności długich logów */
+.post-content table tbody tr:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.05);
+}
+
+/* Podświetlenie wiersza po najechaniu kursorem */
+.post-content table tbody tr:hover {
+    background-color: rgba(128, 128, 128, 0.12);
+}
+
+/* Usunięcie kropek i poprawa wyglądu spisu treści */
+.toc ul {
+    list-style-type: none;
+    padding-left: 0.8rem;
+    margin: 0.4rem 0;
+}
+
+.toc ul ul {
+    padding-left: 1.2rem;
+}
+
+.toc a {
+    color: var(--secondary);
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 0;
+    transition: color 0.15s ease;
+}
+
+.toc a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
