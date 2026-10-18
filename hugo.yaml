@@ -43,8 +43,3 @@ menu:
       weight: 10
 ignoreFiles:
   - '_templates'
-
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
