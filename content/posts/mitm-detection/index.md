@@ -14,13 +14,13 @@ categories:
   - Security  Analysis
 description: Hands-on network forensic walk-through identifying ARP cache poisoning, rogue DNS responses, and cleartext downgrade indicators using Wireshark.
 ShowToc: true
-TocOpen: true
+TocOpen: false
 ---
 ## MITM Attacks - An Overview
 
 A Man-in-the-Middle (MITM): attack where an attacker secretly intercepts and potentially alters communication between two parties, without their knowledge. 
 
-### Common Types of MITM Attacks:
+### Common Types of MITM Attacks
 - Packet sniffing: Capturing unencrypted data packets exchanged over a network, often on open Wi-Fi
 - Session hijacking: Stealing and using session tokens to impersonate users. 
 - SSL stripping: Downgrading HTTPS connections to insecure HTTP to steal or alter data transferred
@@ -32,7 +32,7 @@ A Man-in-the-Middle (MITM): attack where an attacker secretly intercepts and pot
 
 It's important to remember that ARP has no authentication. Any device can send unsolicited is-at messages. It is a severe danger because an attacker can easily send spoofed ARP packets to redirect traffic through them. 
 
-### Indicators of the Attack:
+### Indicators of the Attack
 - Duplicate MAC-to-IP Mappings: Multiple MAC addresses claiming the same IP address.
 - Unsolicited ARP Replies: High number of ARP replies without matching requests ("gratuitous ARP").
 - Abnormal ARP Traffic Volume: A Large number of ARP packets in short intervals.
@@ -62,7 +62,7 @@ I decided to take a closer look at the suspicious `02:fe:fe:**:**:**` MAC addres
 
 DNS spoofing occurs when an attacker crafts forged DNS packets and sends them to the victim's machine to poison its local cache, thereby redirecting traffic to a malicious website. 
 
-### Indicators of the Attack:
+### Indicators of the Attack
 - **Multiple DNS responses for the same query**: A legitimate resolver and a forged responder reply to the same query. This is the single most reliable indicator.
 - **DNS response from an unexpected source**: A DNS reply arrives from an IP address that does not match any configured resolver.
 - **Suspiciously short TTL (Time-To-Live) values**: Attackers use very low TTLs (1 - 30s) to keep poisoned entries short-lived and reassert control.
@@ -82,7 +82,7 @@ While network-based DNS spoofing is easily detected when enforcing a static pool
 
 SSL stripping is a man-in-the-middle technique in which an attacker intercepts and modifies traffic to remove or prevent TLS encryption between a client and a server. This causes the client to communicate over HTTP instead of HTTPS. This on-path tactic is a classic example of a downgrade attack, which occurs when an adversary forces a system to fall back to an insecure or weaker communication standard. 
 
-### How It Works:
+### How It Works
 **How SSL Stripping Actually Works:**
 1. **The Initial Request:** The victim attempts to visit a secure website but initiates the connection over unencrypted HTTP (e.g., by typing the bare domain like `example.com`).
 2. **MitM Interception & Forwarding:** Positioned on-path, the attacker intercepts this initial plaintext request and forwards it to the legitimate server over HTTP.
@@ -91,8 +91,7 @@ SSL stripping is a man-in-the-middle technique in which an attacker intercepts a
 5. **Payload Modification:** Before forwarding the webpage back to the victim, the attacker parses the HTML body, rewriting all `https://` links to `http://` and stripping the `Secure` flag from any cookies.
 6.  **Plaintext Delivery:** The attacker delivers the modified, cleartext HTML to the victim over the original HTTP session. The victim remains unaware of the downgrade, while the adversary sniffs submitted credentials in plaintext.
 
-### Traffic Analysis:
-
+### Traffic Analysis
 While training labs occasionally conflate DNS spoofing with SSL stripping, I’ve decided to skip taking screenshots of my actions to avoid confusing my readers. Instead, I’ll share practical Wireshark display filters along with detailed explanations:
 
 `http.request` - Shows all outbound HTTP requests. If you spot requests going to domains that strictly use HTTPS (like banks, email providers, or login portals) being sent over plain HTTP, SSL stripping is highly likely.
