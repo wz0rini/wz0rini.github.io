@@ -54,3 +54,10 @@
     color: var(--primary);
     text-decoration: underline;
 }
+
+/* Responsywne tabele na urządzeniach mobilnych */
+.post-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
