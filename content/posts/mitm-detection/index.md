@@ -1,5 +1,5 @@
 ---
-title: "Detecting Man-in-the-Middle Attacks: ARP, DNS Spoofing & SSL Stripping Triage"
+title: "Detecting Man-in-the-Middle Attacks: ARP, DNS Spoofing & SSL Stripping"
 date: 2026-10-18T07:05:05+02:00
 draft: false
 tags:
@@ -12,7 +12,7 @@ tags:
   - packet-analysis
 categories:
   - Security  Analysis
-description: Hands-on network forensic walk-through identifying ARP cache poisoning, rogue DNS responses, and cleartext downgrade indicators using Wireshark."
+description: Hands-on network forensic walk-through identifying ARP cache poisoning, rogue DNS responses, and cleartext downgrade indicators using Wireshark.
 ShowToc: true
 TocOpen: true
 ---
