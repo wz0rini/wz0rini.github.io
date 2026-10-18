@@ -44,3 +44,7 @@ menu:
 ignoreFiles:
   - '_templates'
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
