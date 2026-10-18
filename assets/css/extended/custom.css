@@ -65,6 +65,6 @@
 /* Wymuszenie zawijania kodu w tekście i tabelach */
 .post-content code, .post-content p code, .post-content li code {
     white-space: pre-wrap !important;
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
 }
