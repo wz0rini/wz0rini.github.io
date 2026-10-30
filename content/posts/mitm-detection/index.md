@@ -11,7 +11,7 @@ tags:
   - blue-team
   - packet-analysis
 categories:
-  - Security  Analysis
+  - Security Analysis
 description: Hands-on network forensic walk-through identifying ARP cache poisoning, rogue DNS responses, and cleartext downgrade indicators using Wireshark.
 ShowToc: true
 TocOpen: false
