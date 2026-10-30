@@ -8,7 +8,8 @@ tags:
   - PCAP
   - Detection-Engineering
 categories:
-  - Blue Team, Network Security
+  - Blue Team
+  - Network Security
 description: ""
 ShowToc: true
 TocOpen: false
