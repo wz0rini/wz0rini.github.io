@@ -6,11 +6,11 @@ tags:
   - IDS
   - Snort
   - PCAP
-  - Detection-Engineering
+  - detection-engineering
 categories:
   - Blue Team
   - Network Security
-description: ""
+description: A foundational guide to Intrusion Detection Systems (IDS), covering deployment architectures, detection modes, and basic Snort rule structure.
 ShowToc: true
 TocOpen: false
 ---
